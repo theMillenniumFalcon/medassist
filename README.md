@@ -1,107 +1,81 @@
-# MedAssist
+# Turborepo starter
 
-<img src="./logo/logo.svg" width="130" height="130">
+This is an official starter Turborepo.
 
-<!-- ![MedAssist Logo](logo.svg) -->
+## Using this example
 
-MedAssist is a mobile and web application that aims to make the lives of patients and doctors easier and safer. It is designed to help patients avoid unwanted side effects caused by medications by predicting potential side effects of new drug compositions using machine learning. MedAssist also takes input from doctors and adds their approval or disapproval of the suggestions to its database. They can also add side effects that they think might show in patients with specific health conditions like heart disease, diabetes, etc.
+Run the following command:
 
-## How It Works
+```sh
+npx create-turbo@latest
+```
 
-The MedAssist app uses machine learning technologies to predict the side effects of new drug compositions. The machine learning model is trained on a dataset that maps various drug compositions with their side effects. Once the app predicts the side effects, it suggests alternative medicines that do not pose the threat of those side effects.
+## What's inside?
 
-Patients can verify those alternative medicines with an online consultation with a doctor. Once the doctor verifies the suggestions, the patients will get a digital prescription that they can use to buy medicines.
+This Turborepo includes the following packages/apps:
 
-## Technologies Used
+### Apps and Packages
 
-The MedAssist app is built using various in-demand technologies like:
+- `docs`: a [Next.js](https://nextjs.org/) app
+- `web`: another [Next.js](https://nextjs.org/) app
+- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
+- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
+- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
 
-- NextJS
-- NodeJS
-- MongoDB
-- React Native with Expo
-- Express
-- Redux
+Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
 
-## Features
+### Utilities
 
-The following are the key features of the MedAssist app:
+This Turborepo has some additional tools already setup for you:
 
-- Prediction of potential side effects of new drug compositions
-- Suggestion of alternative medicines that do not pose the threat of those side effects
-- Online consultation with a doctor to verify alternative medicines
-- Digital prescription for buying medicines
-- Easy-to-use interface
-- Doctor input for approving or disapproving of suggestions and adding side effects related to specific health conditions
+- [TypeScript](https://www.typescriptlang.org/) for static type checking
+- [ESLint](https://eslint.org/) for code linting
+- [Prettier](https://prettier.io) for code formatting
 
-## App Screenshots
+### Build
 
-<p float="left">
-<img src="./screenshots/01.jpg" width="280" height="520">
-<img src="./screenshots/02.jpg" width="280" height="520">
-<img src="./screenshots/03.jpg" width="280" height="520">
-<img src="./screenshots/04.jpg" width="280" height="520">
-<img src="./screenshots/05.jpg" width="280" height="520">
-<img src="./screenshots/06.jpg" width="280" height="520">
-<img src="./screenshots/07.jpg" width="280" height="520">
-<img src="./screenshots/08.jpg" width="280" height="520">
-<img src="./screenshots/09.jpg" width="280" height="520">
-<img src="./screenshots/10.jpg" width="280" height="520">
-<img src="./screenshots/11.jpg" width="280" height="520">
-<img src="./screenshots/12.jpg" width="280" height="520">
-<img src="./screenshots/13.jpg" width="280" height="520">
-<img src="./screenshots/14.jpg" width="280" height="520">
-<img src="./screenshots/15.jpg" width="280" height="520">
-<img src="./screenshots/16.jpg" width="280" height="520">
-<img src="./screenshots/17.jpg" width="280" height="520">
-<img src="./screenshots/18.jpg" width="280" height="520">
-<img src="./screenshots/19.jpg" width="280" height="520">
-<img src="./screenshots/20.jpg" width="280" height="520">
-<img src="./screenshots/21.jpg" width="280" height="520">
-<img src="./screenshots/22.jpg" width="280" height="520">
-<img src="./screenshots/23.jpg" width="280" height="520">
-<img src="./screenshots/24.jpg" width="280" height="520">
-<img src="./screenshots/25.jpg" width="280" height="520">
-<img src="./screenshots/26.jpg" width="280" height="520">
-<img src="./screenshots/27.jpg" width="280" height="520">
-<img src="./screenshots/28.jpg" width="280" height="520">
-<img src="./screenshots/29.jpg" width="280" height="520">
-<img src="./screenshots/30.jpg" width="280" height="520">
-</p>
+To build all apps and packages, run the following command:
 
-## Installation
+```
+cd my-turborepo
+pnpm build
+```
 
-To install the MedAssist app, follow these steps:
+### Develop
 
-### For the Web Application (NextJS)
+To develop all apps and packages, run the following command:
 
-1. Clone the repository from GitHub
-2. Navigate to the `web` folder
-3. Install the dependencies using `npm install`
-4. Run the development server using `npm run dev`
+```
+cd my-turborepo
+pnpm dev
+```
 
-### For the Mobile Application (React Native with Expo)
+### Remote Caching
 
-1. Clone the repository from GitHub
-2. Install Expo CLI using `npm install --global expo-cli`
-3. Navigate to the `app` folder
-4. Install the dependencies using `npm install`
-5. Run `expo start` to start the application
-6. Install the Expo Go app on your mobile device
-7. Scan the QR code in the Expo DevTools web page or console to open the app on your device
+Turborepo can use a technique known as [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
 
-## Contributors
+By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup), then enter the following commands:
 
-The MedAssist app was created by:
+```
+cd my-turborepo
+npx turbo login
+```
 
-- [Nishank Priydarshi](https://github.com/theMillenniumFalcon)
-- [Aditya Kumar](https://github.com/akaditya394)
-- [Vansh Agarwal](https://github.com/vanshagarwal18)
-- [Naman Agarwal](https://github.com/NamanAgarwal214)
+This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
 
-Contributions to the project are always welcome!
+Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
 
-### Resources used:
+```
+npx turbo link
+```
 
-- https://expo.dev/
-- https://discord.com/blog/how-discord-achieves-native-ios-performance-with-react-native
+## Useful Links
+
+Learn more about the power of Turborepo:
+
+- [Tasks](https://turbo.build/repo/docs/core-concepts/monorepos/running-tasks)
+- [Caching](https://turbo.build/repo/docs/core-concepts/caching)
+- [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching)
+- [Filtering](https://turbo.build/repo/docs/core-concepts/monorepos/filtering)
+- [Configuration Options](https://turbo.build/repo/docs/reference/configuration)
+- [CLI Usage](https://turbo.build/repo/docs/reference/command-line-reference)

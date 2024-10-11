@@ -1,1 +1,0 @@
-nextjs webclient for medassist
